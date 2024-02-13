@@ -25,7 +25,7 @@ private int currentPlayerTurn;
     @GetMapping("/newGame")
     public String newGame() {
         if(game == null) {
-            return "You have not created a game yet and you have no player pool. GET map '/newGameNewPlayers' to create a game";
+            return "You have not created a game yet and you have no player pool. GET map '/newGameNewPlayers' to create a game and follow instructions.";
         }else if(game.getPlayerCount() == 0) {
             return "You have not created a player pool yet. GET map '/newGameNewPlayers' and follow instructions";
         }else if(game.getPlayerCount() == 1) {
@@ -43,7 +43,7 @@ private int currentPlayerTurn;
             game = new Game();
         }
         game.newGameNewPlayers();
-        return "You have created a new game."+ System.lineSeparator() + "To create a user pool POST map '/addPlayer' with the player name as a parameter (name: 'player name')." + System.lineSeparator() + "Add as many players as you want. When you're done, follow the instructions to start the game rounds";
+        return "You have created a new game."+ System.lineSeparator() + "To create a player pool POST map '/addPlayer' with the player name as a parameter (name: 'player name')." + System.lineSeparator() + "Add as many players as you want. When you're done, follow the instructions to start the game rounds";
     }
 
     @PostMapping("/addPlayer")

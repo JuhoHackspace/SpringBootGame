@@ -39,6 +39,9 @@ public class QuestionPool {
     public Question randomQuestion() {
         while(true) {
             int index = random.nextInt(20);
+            if(shownQuestions.size() == 20) {
+                shownQuestions.clear();
+            }
             if(!shownQuestions.contains(index)) {
                 shownQuestions.add(index);
                 return questions.get(index);

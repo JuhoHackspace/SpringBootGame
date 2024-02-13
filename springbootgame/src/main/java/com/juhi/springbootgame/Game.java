@@ -91,6 +91,7 @@ public class Game {
         for(Player p: players) {
             if(p.getPoints() == 20) {
                 possibleWinners.add(p);
+                roundStarted = false;
             }
             output += System.lineSeparator() + "Player number: " + p.getNmbr() + " " + p.getName() + " has " + p.getPoints() + " points" + System.lineSeparator();
         }

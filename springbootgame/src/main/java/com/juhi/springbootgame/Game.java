@@ -18,7 +18,7 @@ public class Game {
         players = new ArrayList<>();
         questions = new QuestionPool();
         answers = new HashMap<>();
-        round = 0;
+        round = 1;
         playerCount = 0;
         gameStarted = false;
         roundStarted = false;
@@ -31,7 +31,7 @@ public class Game {
     }
 
     public void newGameSamePlayers() {
-        round = 0;
+        round = 1;
         for(Player p: players) {
             p.resetPoints();
         }
@@ -42,7 +42,7 @@ public class Game {
     }
 
     public void newGameNewPlayers() {
-        round = 0;
+        round = 1;
         players.clear();
         playerCount = 0;
         questions.resetShownQuestions();

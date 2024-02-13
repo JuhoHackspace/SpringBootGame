@@ -33,7 +33,7 @@ private int currentPlayerTurn;
         }else {
             game.newGameSamePlayers();
             currentPlayerTurn = 1;
-            return "Starting New Game. The first question:" + System.lineSeparator() + game.nextQuestion().toString() + System.lineSeparator() + "To post answers. POST map '/postAnswer' with the answer as a parameter (answer: D). Insert only a letter from A to D" + System.lineSeparator() + "Player " + game.getNameByNmbr(currentPlayerTurn) + ", post your answer!";
+            return "Starting New Game. Round " + game.getRound() + " .The first question:" + System.lineSeparator() + game.nextQuestion().toString() + System.lineSeparator() + "To post answers. POST map '/postAnswer' with the answer as a parameter (answer: D). Insert only a letter from A to D" + System.lineSeparator() + "Player " + game.getNameByNmbr(currentPlayerTurn) + ", post your answer!";
         }
     }
 
@@ -74,7 +74,7 @@ private int currentPlayerTurn;
                     currentPlayerTurn = 1;
                     output += "All answers posted" + System.lineSeparator() + game.setPointsAndGetWinners();
                     if(!game.checkForWin()) {
-                        output += game.getPlayersStatus() + System.lineSeparator() + "No winner yet. Next question: " + System.lineSeparator() + game.nextQuestion().toString() + System.lineSeparator() + "Player " + game.getNameByNmbr(currentPlayerTurn) + ", post your answer!";
+                        output += game.getPlayersStatus() + System.lineSeparator() + "No winner yet. Starting round " + game.getRound() + " .Next question: " + System.lineSeparator() + game.nextQuestion().toString() + System.lineSeparator() + "Player " + game.getNameByNmbr(currentPlayerTurn) + ", post your answer!";
                     }else {
                         output += game.getPlayersStatus() + System.lineSeparator() + "Start a new game with same players by GET mappin '/newGame' or create a new game with new players by GET mapping '/newGameNewPlayers' ";
                     }
